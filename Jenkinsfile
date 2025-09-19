@@ -12,11 +12,9 @@ pipeline {
                 // Get some code from a GitHub repository
                 git branch: 'main', url: 'https://github.com/melissamcarvalho/brecho'
 
-                // Run Maven on a Unix agent.
-                sh "cd brecho; mvn -Dmaven.test.failure.ignore=true clean package"
 
-                // To run Maven on a Windows agent, use
-                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                // Run Maven on a Windows agent.
+                bat "cd brecho && mvn -Dmaven.test.failure.ignore=true clean package"
             }
 
             post {

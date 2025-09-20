@@ -14,14 +14,14 @@ pipeline {
 
 
                 // Run Maven on a Windows agent.
-                bat "cd brecho/src/test/java && mvn -Dmaven.test.failure.ignore=true clean package"
+                bat "cd brecho && mvn -Dmaven.test.failure.ignore=true clean package"
             }
 
             post {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
-                    junit 'brecho/target/surefire-reports/TEST-*.xml'
+                    junit '**/brecho/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'brecho/target/*.jar'
                 }
             }

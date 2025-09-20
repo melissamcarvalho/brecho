@@ -14,7 +14,7 @@ pipeline {
 
 
                 // Run Maven on a Windows agent.
-                bat "cd brecho && mvn -Dmaven.test.failure.ignore=true clean package"
+                bat "cd brecho && mvn -Dmaven.test.failure.ignore=false clean package"
             }
 
             post {
